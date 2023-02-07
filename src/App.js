@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import './App.css';
 import { signInWithGoogle } from "./firebase";
+import { createUserWithEmailAndPassword } from '@firebase/auth';
+import { auth } from './firebase-config'
 
 function App() {
 
@@ -10,8 +12,14 @@ function App() {
   const [loginPassword, setLoginPassword] = useState("");
 
   const register = async () => {
+try {
+    const user = await createUserWithEmailAndPassword();
+    console.log(user)
+} catch (error) {
+  console.log(error.message);
+}
 
-  }
+  };
 
   const login = async () => {
 
@@ -23,14 +31,14 @@ function App() {
     <div className="App">
       <div>
         <h2>Regiser User</h2>
-        <input placeholder='email' Email />
-        <input placeholder='password' Password />
+        <input placeholder="email" onChange={(event) => {setRegisterEmail(event.target.value)}}/>
+        <input placeholder="password"  onChange={(event) => {setRegisterPassword(event.target.value)}}/>
         <button>Create user</button>
       </div>
       <div>
         <h2>Login</h2>
-        <input placeholder='email' Email />
-        <input placeholder='password' Password />
+        <input placeholder="email"  onChange={(event) => {setLoginEmail(event.target.value)}} />
+        <input placeholder="password"  onChange={(event) => {setLoginPassword(event.target.value)}}/>
         <button>login</button>
       </div>
       <div>
