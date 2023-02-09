@@ -1,52 +1,33 @@
-import { useState } from 'react';
-import './App.css';
-import { signInWithGoogle } from "./firebase";
-import { createUserWithEmailAndPassword } from '@firebase/auth';
-import { auth } from './firebase-config'
+import Gauth from "./components/Gauth";
+import Signup from "./components/Signup";
+import { AuthProvider } from "./contexts/AuthContext";
+import { BrowserRouter as Router, Routes, Route, BrowserRouter } from "react-router-dom";
+import Dashboard from "./Dashboard";
+import Login from "./components/Login";
+import PrivateRoute from "./components/PrivateRoute";
+import ForgotPassword from "./components/ForgotPassword";
+import  UpdateProfile from "./components/UpdateProfile";
 
-function App() {
+  function App() {
+   return (
+      <div>
+    
+        <AuthProvider>
+<BrowserRouter>
+<Routes>
+   <Route path="/" element={<PrivateRoute><Dashboard /></PrivateRoute>} />
+   <Route path="/update-profile" element={<PrivateRoute><UpdateProfile /></PrivateRoute>} />
+   <Route path="/signup" element={<Signup />} />
+   <Route path="/login" element={<Login />} />
+   <Route path="/forgot-password" element={<ForgotPassword />} />
+   <Route path="/gauth" element={<Gauth />} />
+</Routes>
+</BrowserRouter>
+ </AuthProvider>
 
-  const [registerEmail, setRegisterEmail] = useState("");
-  const [registerPassword, setRegisterPassword] = useState("");
-  const [loginEmail, setLoginEmail] = useState("");
-  const [loginPassword, setLoginPassword] = useState("");
 
-  const register = async () => {
-try {
-    const user = await createUserWithEmailAndPassword();
-    console.log(user)
-} catch (error) {
-  console.log(error.message);
-}
-
-  };
-
-  const login = async () => {
-
+ </div>
+  );
   }
-  const logout = async () => {
 
-  }
-  return (
-    <div className="App">
-      <div>
-        <h2>Regiser User</h2>
-        <input placeholder="email" onChange={(event) => {setRegisterEmail(event.target.value)}}/>
-        <input placeholder="password"  onChange={(event) => {setRegisterPassword(event.target.value)}}/>
-        <button>Create user</button>
-      </div>
-      <div>
-        <h2>Login</h2>
-        <input placeholder="email"  onChange={(event) => {setLoginEmail(event.target.value)}} />
-        <input placeholder="password"  onChange={(event) => {setLoginPassword(event.target.value)}}/>
-        <button>login</button>
-      </div>
-      <div>
-<button onClick={signInWithGoogle}>Sign In with Google</button>
-<h1>{localStorage.getItem("name")}</h1>
-</div>
-</div>
-    )
-}
-
-export default App;
+  export default App;
