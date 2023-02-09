@@ -20,7 +20,6 @@ import  UpdateProfile from "./components/UpdateProfile";
    <Route path="/signup" element={<Signup />} />
    <Route path="/login" element={<Login />} />
    <Route path="/forgot-password" element={<ForgotPassword />} />
-   <Route path="/gauth" element={<Gauth />} />
 </Routes>
 </BrowserRouter>
  </AuthProvider>
