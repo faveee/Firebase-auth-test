@@ -3,9 +3,9 @@ import { Navigate } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
 
 function PrivateRoute({ children }) {
-    const { currentUser } = useAuth();
+    const { currentuser } = useAuth();
 
-  return currentUser ? children : <Navigate to="/login" />;
+  return currentuser ? children : <Navigate to="/dashboard" />;
 
 }
 

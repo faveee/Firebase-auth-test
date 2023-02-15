@@ -1,6 +1,7 @@
-import React, { useContext, useEffect, useState } from 'react'
-import { auth, signInWithGoogle } from '../firebase';
-import { createUserWithEmailAndPassword, sendPasswordResetEmail, signInWithEmailAndPassword, signOut, updateEmail as updateEmailFirebase, updatePassword as updatePasswordFirebase } from 'firebase/auth';
+import React, { useContext, useEffect, useState } from 'react';
+import { db, auth, signInWithGoogle } from '../firebase';
+import { addDoc, collection, doc, setDoc } from 'firebase/firestore';
+import { AuthErrorCodes, onAuthStateChanged, createUserWithEmailAndPassword, sendPasswordResetEmail, signInWithEmailAndPassword, signOut, updateEmail as updateEmailFirebase, updatePassword as updatePasswordFirebase } from 'firebase/auth';
 
 
 const AuthContext = React.createContext()
@@ -10,13 +11,64 @@ export function useAuth() {
 }
 
 export  function AuthProvider({ children }) {
-    const [currentUser, setCurrentUser] = useState()
-    const [loading, setLoading] = useState(true)
+  const [error, setError] = useState("")
+  const [loading, setLoading] = useState(true)
+  const [currentuser, setuser] = useState()
+  useEffect(
+    () => {
+      onAuthStateChanged(auth, user => {
+        console.log(user)
+        if (user) {
+          setuser(user)
+          console.log("u are logging")
+        }
+        else {
+          // alert("u are logout")
+        }
+      })
+    }, [currentuser]
+  )
+  const SignUp = async (email, password, FullName, Age, Profession) => {
+    setError("");
+    createUserWithEmailAndPassword(auth, email, password).then(
+      async (result) => {
+        console.log(result)
+        try {
+          // const docRef = await addDoc(collection(db, "users"), {
+          //   FullName,
+          //   userId: `${result.user.uid}`
+          // });
+          const ref = doc(db, "artisian", result.user.uid)
+          const docRef = await setDoc(ref, { FullName, Age, Profession })
+          alert("Welcome new User create successfully")
+          console.log("Document written with ID: ", docRef.id);
+        } catch (e) {
+          console.error("Error adding document: ", e);
+        }
+      }
+    ).catch(err => {
+      if (err.code === "auth/email-already-in-use") {
 
-function signup(email, password) {
-return createUserWithEmailAndPassword(auth, email, password);
-}
+        setInterval(() => {
+          setError("")
+        }, 5000)
+        setError("email already in use try another email")
+      }
+      else if (err.code === AuthErrorCodes.WEAK_PASSWORD) {
 
+        setInterval(() => {
+          setError("")
+        }, 5000)
+        setError("Password Must be 6 charecter")
+      }
+
+      else {
+        setError(err.message)
+      }
+    })
+  }
+  
+  
 function login(email, password) {
   return signInWithEmailAndPassword(auth, email, password)
   }
@@ -30,11 +82,11 @@ return sendPasswordResetEmail(auth, email);
     }
 
     function updateEmail(email) {
-      return updateEmailFirebase(auth, currentUser, email);
+      return updateEmailFirebase(auth, currentuser, email);
           }
 
           function updatePassword(password) {
-            return updatePasswordFirebase(currentUser, password);
+            return updatePasswordFirebase(currentuser, password);
                 }
                 function googleLogin() {
                   return signInWithGoogle(auth);
@@ -42,7 +94,7 @@ return sendPasswordResetEmail(auth, email);
 
 useEffect (() => {
     const unsubscribe = auth.onAuthStateChanged(user => {
-      setCurrentUser(user)
+      setuser(user)
       setLoading(false)
         })
         
@@ -50,9 +102,9 @@ useEffect (() => {
 }, [])
 
     const value = {
-        currentUser,
+        currentuser,
         login,
-        signup,
+        SignUp,
         logout,
         resetPassword,
         updateEmail,
