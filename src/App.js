@@ -1,4 +1,4 @@
-
+import Signupasartisan from "./Pages/SignUpAsArtisan/Signupasartisan";
 import Signupuser from "./Pages/SignUpUser/Signupuser";
 import { AuthProvider } from "./contexts/AuthContext";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
@@ -21,7 +21,7 @@ import  UpdateProfile from "./components/UpdateProfile";
    <Route path="/" element={<PrivateRoute><Dashboard /></PrivateRoute>} />
    <Route path="/update-profile" element={<PrivateRoute><UpdateProfile /></PrivateRoute>} />
    <Route path="/signin" element={<SignIn />} />
-   
+   <Route path="/Signupasartisan" element={<Signupasartisan />} />
    <Route path="/Signupuser" element={<Signupuser />} />
    <Route path="/forgot-password" element={<ForgotPassword />} />
 </Routes>

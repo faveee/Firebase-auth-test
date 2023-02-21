@@ -68,6 +68,25 @@ const SignUp = () => {
             return setError("Password Must be Greater then 6 Length")
         }
 
+        else {
+
+            SignUp(email, password, FullName)
+            {
+                currentuser && setUser({
+                    FirstName: "",
+                    LastName: "",
+                    Profession: "",
+                    email: "",
+                    Phone: "",
+                    WorkAddress: "",
+                    State: "",
+                    Age: "",
+                    password: "",
+                    confirmPassword: ""
+                })
+        }
+    }
+
         try {
             setError("");
             setLoading(true);

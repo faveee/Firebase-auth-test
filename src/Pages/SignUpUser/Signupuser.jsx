@@ -47,8 +47,8 @@ const SignUp = () => {
 
     const SubmitHandler = async (e) => {
         e.preventDefault()
-        const { email, password, confirmPassword, FullName, Age, Profession } = user
-        if (password == "" || confirmPassword == "" || email == "" || FullName == "" || Age == "" || Profession == "") {
+        const {email, password, confirmPassword, FirstName, LastName, Profession, Phone, WorkAddress, State, Age } = user
+        if (password == "" || confirmPassword == "" || email == "" || FirstName == "" || LastName == "" || Profession == "" || Phone == "" || WorkAddress == "" || State == "" || Age == "") {
             setInterval(() => {
                 setError("")
             }, 5000)
@@ -68,6 +68,25 @@ const SignUp = () => {
             }, 5000)
             return setError("Password Must be Greater then 6 Length")
         }
+
+        else {
+
+            SignUp(email, password, confirmPassword, FirstName, LastName, Profession, Phone, WorkAddress, State, Age)
+            {
+                currentuser && setUser({
+                    FirstName: "",
+                    LastName: "",
+                    Profession: "",
+                    email: "",
+                    Phone: "",
+                    WorkAddress: "",
+                    State: "",
+                    Age: "",
+                    password: "",
+                    confirmPassword: ""
+                })
+        }
+    }
 
         try {
             setError("");
@@ -113,8 +132,8 @@ const SignUp = () => {
                     <input type="text" value={user.Phone} name='Phone' onChange={UserHandler} />
                 </div>
                 <div className="inputfield">
-                    wAddress
-                    <input type="text" value={user.WorkAddress} name='Address' onChange={UserHandler} />
+                    Address
+                    <input type="text" value={user.WorkAddress} name='WorkAddress' onChange={UserHandler} />
                 </div> 
                 <div  className="inputfield">
                     State
