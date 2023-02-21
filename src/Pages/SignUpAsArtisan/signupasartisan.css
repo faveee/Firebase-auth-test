@@ -1,0 +1,133 @@
+* {
+box-sizing: border-box;
+}
+
+body {
+font-family: 'Poppins';
+}
+
+.signup-header {
+width: 100%;
+}
+
+.form {
+display: flex;
+flex-flow: column;
+align-items: center;
+justify-content: center;
+gap: 5px;
+box-shadow: 4px 4px 4px 4px rgba(0, 0, 0, 0.25);
+margin: 69px;
+}
+
+.formTitle {
+text-align: center;
+padding: 70px 78px ;
+font-size: 32px;
+font-weight: 600;
+line-height: 48px;
+}
+
+
+
+.form input {
+display: flex;
+height: 64px;
+width: 730px;
+border-radius: 0px;
+border: 3px solid #008081;
+}
+
+.formSection {
+display: flex;
+flex-direction: row;
+justify-content: space-between;
+gap: 50px;
+}
+
+.formSection input {
+    width: 343px;
+    }
+    
+
+    .bottom {
+        display: flex;
+        flex-direction: row;
+        padding: 30px 30px;
+        gap: 10px
+    }
+    
+    .bottom a {
+        padding-left: 5px;
+    text-decoration: none;
+    color: #008081;
+    }
+
+    input[type="checkbox"] {
+        height: 24px;
+        width: 24px;
+        border-radius: 5px;
+        border: 1px solid #008081;
+      
+        -webkit-appearance: none;
+        -webkit-transition: box-shadow 200ms;
+      }
+      
+      input[type="checkbox"]:checked {
+        border-color: #008081;
+        background-color: #008081;
+      }
+      
+      input[type="checkbox"]:checked:before {
+        content: '';
+        display: block;
+        width: 6px;
+        height: 10px;
+        border: solid #fff;
+        border-width: 0 2px 2px 0;
+        -webkit-transform: rotate(45deg);
+        transform: rotate(45deg);
+        margin: 5px;
+        }
+
+    input[type=checkbox] + span {
+        font-size: 20px;
+      font-weight: 400;
+      line-height: 30px;
+      letter-spacing: 0em;
+          color: black
+      } 
+    
+    .form button {
+        font-size: 32px;
+    font-weight: 600;
+    line-height: 48px;
+    letter-spacing: 0em;
+    text-align: center;
+    margin: 0px 20px 0px 20px;
+        width: 731px;
+        height: 54px;
+    
+        background-color: #008081;
+        border: 1px solid #008081;
+        border-radius: 10px;
+        color: white;
+        cursor: pointer;
+    }
+
+    .footerBtm {
+            font-size: 20px;
+            font-weight: 400;
+            line-height: 30px;
+            letter-spacing: 0em;
+            text-align: center;
+            
+            padding: 64px 61px;
+                
+            }
+            .footerBtm a {
+                text-decoration: none;
+                color: #008081;
+            }
+            
+    

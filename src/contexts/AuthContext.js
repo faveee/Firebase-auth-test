@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { db, auth, signInWithGoogle } from '../firebase';
+import { db, auth } from '../firebase';
 import { addDoc, collection, doc, setDoc } from 'firebase/firestore';
 import { AuthErrorCodes, onAuthStateChanged, createUserWithEmailAndPassword, sendPasswordResetEmail, signInWithEmailAndPassword, signOut, updateEmail as updateEmailFirebase, updatePassword as updatePasswordFirebase } from 'firebase/auth';
 
@@ -28,7 +28,7 @@ export  function AuthProvider({ children }) {
       })
     }, [currentuser]
   )
-  const SignUp = async (email, password, FullName, Age, Profession) => {
+  const SignUp = async (email, password, FirstName, LastName, Profession, Phone, WorkAddress, State, Age) => {
     setError("");
     createUserWithEmailAndPassword(auth, email, password).then(
       async (result) => {
@@ -39,7 +39,7 @@ export  function AuthProvider({ children }) {
           //   userId: `${result.user.uid}`
           // });
           const ref = doc(db, "artisian", result.user.uid)
-          const docRef = await setDoc(ref, { FullName, Age, Profession })
+          const docRef = await setDoc(ref, { FirstName, LastName, Profession, Phone, WorkAddress, State, Age })
           alert("Welcome new User create successfully")
           console.log("Document written with ID: ", docRef.id);
         } catch (e) {
@@ -88,9 +88,6 @@ return sendPasswordResetEmail(auth, email);
           function updatePassword(password) {
             return updatePasswordFirebase(currentuser, password);
                 }
-                function googleLogin() {
-                  return signInWithGoogle(auth);
-                }
 
 useEffect (() => {
     const unsubscribe = auth.onAuthStateChanged(user => {
@@ -109,7 +106,6 @@ useEffect (() => {
         resetPassword,
         updateEmail,
         updatePassword,
-        googleLogin
     };
 
   return (

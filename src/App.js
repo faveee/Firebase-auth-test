@@ -1,12 +1,13 @@
-import Signup from "./components/Signup";
+
+import Signupuser from "./Pages/SignUpUser/Signupuser";
 import { AuthProvider } from "./contexts/AuthContext";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Dashboard from "./Dashboard";
-import Login from "./components/Login";
+import Navbar from './components/Navbar';
+import SignIn from "./Pages/SignIn/Signin";
 import PrivateRoute from "./components/PrivateRoute";
-import ForgotPassword from "./components/ForgotPassword";
+import ForgotPassword from "./Pages/ForgotPassword";
 import  UpdateProfile from "./components/UpdateProfile";
-import GeoLocation from "./Geolocation";
 
 
   function App() {
@@ -15,12 +16,13 @@ import GeoLocation from "./Geolocation";
     
         <AuthProvider>
 <Router>
-<GeoLocation />
+<Navbar/>
 <Routes>
    <Route path="/" element={<PrivateRoute><Dashboard /></PrivateRoute>} />
    <Route path="/update-profile" element={<PrivateRoute><UpdateProfile /></PrivateRoute>} />
-   <Route path="/signup" element={<Signup />} />
-   <Route path="/login" element={<Login />} />
+   <Route path="/signin" element={<SignIn />} />
+   
+   <Route path="/Signupuser" element={<Signupuser />} />
    <Route path="/forgot-password" element={<ForgotPassword />} />
 </Routes>
 </Router>

@@ -1,20 +1,28 @@
+import "./signupuser.css";
 import React, { useEffect, useState } from 'react';
-import { useAuth } from '../contexts/AuthContext';
+import { useAuth } from '../../contexts/AuthContext';
 import { Link, useNavigate } from "react-router-dom";
+import header3 from "../../assests/header3.png";
+
 
 const SignUp = () => {
-    const [user, setUser] = useState({
-        FullName: "",
-        Age: "",
-        Profession: "",
-        email: "",
-        password: "",
-        confirmPassword: ""
-    })
-    const { error, SignUp, googleLogin, currentuser } = useAuth()
+
+    const { error, SignUp, currentuser } = useAuth()
     const [err, setError] = useState("")
     const [backError, setBackError] = useState("")
     const [loading, setLoading] = useState(false);
+    const [user, setUser] = useState({
+        FirstName: "",
+        LastName: "",
+        Profession: "",
+        email: "",
+        Phone: "",
+        WorkAddress: "",
+        State: "",
+        Age: "",
+        password: "",
+        confirmPassword: ""
+    })
     const navigate = useNavigate();
     
     useEffect(() => {
@@ -64,7 +72,7 @@ const SignUp = () => {
         try {
             setError("");
             setLoading(true);
-           await SignUp(user.FullName, user.Age, user.Profession, user.email, user.password);
+           await SignUp(user.FirstName, user.LastName, user.Profession, user.email, user.Phone, user.WorkAddress, user.State, user.Age, user.password);
            navigate("/");
         } catch (error) {
     
@@ -74,16 +82,6 @@ const SignUp = () => {
     setLoading(false);
     }
     
-
-    async function googleHandle() {
-        try{
-            await googleLogin();
-        
-        } catch (error) {
-            setError("Failed to create an account");
-        }
-    }
-
     return (
         <div className='box'>
             {
@@ -93,35 +91,59 @@ const SignUp = () => {
                     backError && <p className='error'>{backError}</p>
                 )
             }
+            <div>
+           <img src={header3} alt="SignUpHeader" className="signup-header" />
+            </div>
             <form onSubmit={SubmitHandler} className="form">
-                <h2>Registration Form</h2>
+                <h2 className="formTitle">Sign-Up as User</h2>
                 <div className="inputfield">
-                    <input type="text" placeholder="UserName" value={user.FullName} name='FullName' onChange={UserHandler} />
+                    First Name
+                    <input type="text" value={user.FirstName} name='FirstName' onChange={UserHandler} />
                 </div>
                 <div className="inputfield">
-                    <input type="text" placeholder="Age" value={user.Age} name='Age' onChange={UserHandler} />
+                    Last Name
+                    <input type="text" value={user.LastName} name='LastName' onChange={UserHandler} />
                 </div>
                 <div className="inputfield">
-                    <input type="text" placeholder="Profession" value={user.Profession} name='Profession' onChange={UserHandler} />
+                    Email
+                    <input type="text" value={user.email} name='email' onChange={UserHandler} />
                 </div>
                 <div className="inputfield">
-                    <input type="text" placeholder="Email" value={user.email} name='email' onChange={UserHandler} />
-                </div>
-
-                <div className="inputfield">
-                    <input type="password" placeholder="Password" value={user.password} name='password' onChange={UserHandler} />
+                    Phone
+                    <input type="text" value={user.Phone} name='Phone' onChange={UserHandler} />
                 </div>
                 <div className="inputfield">
-                    <input type="password" placeholder="Confirm Password" value={user.confirmPassword} name='confirmPassword' onChange={UserHandler} />
+                    wAddress
+                    <input type="text" value={user.WorkAddress} name='Address' onChange={UserHandler} />
+                </div> 
+                <div  className="inputfield">
+                    State
+                    <input type="text" value={user.State} name='State' onChange={UserHandler} />
+</div>
+                <div className="formSection">
+                    <div>
+                    Password
+                    <input type="password" value={user.password} name='password' onChange={UserHandler} />
+                    </div>
+                    <div>
+                    Confirm Password
+                    <input type="password" value={user.confirmPassword} name='confirmPassword' onChange={UserHandler} />
+                    </div>
                 </div>
-                <button disabled={loading} type='submit'>Register</button>
-            </form>
-            <div onClick={googleHandle}>Google</div>
-        <div>
-        Already have an account? <Link to="/login">Login</Link>
+                <div className="bottom">
+                <input type="checkbox" id="opt" />
+<span id="opt">By creating an account you agree to our<a href="www.google.com" alt="Terms and Condition">Terms of Service</a></span>
+                </div>
+                <div className="btn-ctn">
+                <button disabled={loading} type='submit'>Create Account</button>
+                </div>
+                <div className="footerBtm">
+        Already have an account? <Link to="/signin">Log In</Link>
        </div>
+            </form>
        </div>
     )
+
 }
 
 export default SignUp
