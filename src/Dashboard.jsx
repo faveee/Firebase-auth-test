@@ -12,7 +12,7 @@ setError("");
 
 try {
     await logout();
-    navigate("/login");
+    navigate("/signin");
 } catch {
     setError("Failed to log out");
 }

@@ -25,15 +25,15 @@ const SignUp = () => {
     })
     const navigate = useNavigate();
     
-    useEffect(() => {
-        console.log("i am in")
-        if (error) {
-            setInterval(() => {
-                setBackError("")
-            }, 5000)
-            setBackError(error)
-        }
-    }, [error, currentuser])
+    // useEffect(() => {
+    //     console.log("i am in")
+    //     if (error) {
+    //         setInterval(() => {
+    //             setBackError("")
+    //         }, 5000)
+    //         setBackError(error)
+    //     }
+    // }, [error, currentuser])
     const UserHandler = (e) => {
         const { name, value } = e.target;
         console.log(name +"::::::::::"+value)
@@ -48,7 +48,7 @@ const SignUp = () => {
     const SubmitHandler = async (e) => {
         e.preventDefault()
         const {email, password, confirmPassword, FirstName, LastName, Profession, Phone, WorkAddress, State, Age } = user
-        if (password == "" || confirmPassword == "" || email == "" || FirstName == "" || LastName == "" || Profession == "" || Phone == "" || WorkAddress == "" || State == "" || Age == "") {
+        if (password === "" || confirmPassword === "" || email === "" || FirstName === "" || LastName === "" || Profession === "" || Phone === "" || WorkAddress === "" || State === "" || Age === "") {
             setInterval(() => {
                 setError("")
             }, 5000)
@@ -92,7 +92,7 @@ const SignUp = () => {
             setError("");
             setLoading(true);
            await SignUp(user.FirstName, user.LastName, user.Profession, user.email, user.Phone, user.WorkAddress, user.State, user.Age, user.password);
-           navigate("/");
+           navigate("/dashboard");
         } catch (error) {
     
     setError("Failed to create an account");
@@ -154,7 +154,7 @@ const SignUp = () => {
 <span id="opt">By creating an account you agree to our<a href="www.google.com" alt="Terms and Condition">Terms of Service</a></span>
                 </div>
                 <div className="btn-ctn">
-                <button disabled={loading} type='submit'>Create Account</button>
+                <button type='submit'>Create Account</button>
                 </div>
                 <div className="footerBtm">
         Already have an account? <Link to="/signin">Log In</Link>

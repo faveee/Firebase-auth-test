@@ -14,30 +14,26 @@ export  function AuthProvider({ children }) {
   const [error, setError] = useState("")
   const [loading, setLoading] = useState(true)
   const [currentuser, setuser] = useState()
-  useEffect(
-    () => {
-      onAuthStateChanged(auth, user => {
-        console.log(user)
-        if (user) {
-          setuser(user)
-          console.log("u are logging")
-        }
-        else {
-          // alert("u are logout")
-        }
-      })
-    }, [currentuser]
-  )
+  // useEffect(
+  //   () => {
+  //     onAuthStateChanged(auth, user => {
+  //       console.log(user)
+  //       if (user) {
+  //         setuser(user)
+  //         console.log("u are logging")
+  //       }
+  //       else {
+  //         // alert("u are logout")
+  //       }
+  //     })
+  //   }, [currentuser]
+  // )
   const SignUp = async (email, password, FirstName, LastName, Profession, Phone, WorkAddress, State, Age) => {
     setError("");
     createUserWithEmailAndPassword(auth, email, password).then(
       async (result) => {
         console.log(result)
         try {
-          // const docRef = await addDoc(collection(db, "users"), {
-          //   FullName,
-          //   userId: `${result.user.uid}`
-          // });
           const ref = doc(db, "artisian", result.user.uid)
           const docRef = await setDoc(ref, { FirstName, LastName, Profession, Phone, WorkAddress, State, Age })
           alert("Welcome new User create successfully")

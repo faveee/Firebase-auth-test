@@ -46,8 +46,8 @@ const SignUp = () => {
 
     const SubmitHandler = async (e) => {
         e.preventDefault()
-        const { email, password, confirmPassword, FullName, Age, Profession } = user
-        if (password == "" || confirmPassword == "" || email == "" || FullName == "" || Age == "" || Profession == "") {
+        const {email, password, confirmPassword, FirstName, LastName, Profession, Phone, WorkAddress, State, Age } = user
+        if (password == "" || confirmPassword == "" || email == "" || FirstName == "" || LastName == "" || Profession == "" || Phone == "" || WorkAddress == "" || State == "" || Age == "") {
             setInterval(() => {
                 setError("")
             }, 5000)
@@ -70,7 +70,7 @@ const SignUp = () => {
 
         else {
 
-            SignUp(email, password, FullName)
+            SignUp(email, password, confirmPassword, FirstName, LastName, Profession, Phone, WorkAddress, State, Age)
             {
                 currentuser && setUser({
                     FirstName: "",
@@ -91,7 +91,7 @@ const SignUp = () => {
             setError("");
             setLoading(true);
            await SignUp(user.FirstName, user.LastName, user.Profession, user.email, user.Phone, user.WorkAddress, user.State, user.Age, user.password);
-           navigate("/");
+           navigate("/dashboard");
         } catch (error) {
     
     setError("Failed to create an account");

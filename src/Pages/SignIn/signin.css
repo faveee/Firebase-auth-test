@@ -152,6 +152,16 @@ padding: 64px 61px;
     color: #008081;
   }
 
+  .btn-outline {
+    position: relative;
+    display: flex;
+  }
+
+  .btn-outline .on .off {
+    position: absolute;
+    top: 38%;
+    right: 16%;
+  }
   
   
 

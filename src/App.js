@@ -8,6 +8,7 @@ import SignIn from "./Pages/SignIn/Signin";
 import PrivateRoute from "./components/PrivateRoute";
 import ForgotPassword from "./Pages/ForgotPassword";
 import  UpdateProfile from "./components/UpdateProfile";
+import Home from "./Pages/Home/Home";
 
 
   function App() {
@@ -18,7 +19,8 @@ import  UpdateProfile from "./components/UpdateProfile";
 <Router>
 <Navbar/>
 <Routes>
-   <Route path="/" element={<PrivateRoute><Dashboard /></PrivateRoute>} />
+<Route path="/" element={<Home />} />
+   <Route path="/dashboard" element={<PrivateRoute><Dashboard /></PrivateRoute>} />
    <Route path="/update-profile" element={<PrivateRoute><UpdateProfile /></PrivateRoute>} />
    <Route path="/signin" element={<SignIn />} />
    <Route path="/Signupasartisan" element={<Signupasartisan />} />

@@ -4,7 +4,25 @@ import header from "../../assests/header.png";
 import { useAuth } from '../../contexts/AuthContext'
 import { Link, useNavigate } from "react-router-dom";
 
+import RemoveRedEyeOutlinedIcon from '@mui/icons-material/RemoveRedEyeOutlined';
+import VisibilityOffOutlinedIcon from '@mui/icons-material/VisibilityOffOutlined';
+
 export default function Login() {
+
+    const [passwordType, setPasswordType] = useState("password");
+    const [passwordInput, setPasswordInput] = useState("");
+    const handlePasswordChange =(evnt)=>{
+        setPasswordInput(evnt.target.value);
+    }
+    const togglePassword =()=>{
+      if(passwordType==="password")
+      {
+       setPasswordType("text")
+       return;
+      }
+      setPasswordType("password")
+    }
+
     const emailRef = useRef();
     const passwordRef = useRef();
     const { login } = useAuth();
@@ -19,7 +37,7 @@ async function handleSubmit(e) {
         setError("");
         setLoading(true);
        await login(emailRef.current.value, passwordRef.current.value);
-       navigate("/");
+       navigate("/dashboard");
     } catch {
 
 setError("Failed to Login");
@@ -43,9 +61,10 @@ setLoading(false);
     Email/Phone
     <input type='email' className="field" ref={emailRef} required />
 </label>
-<label>
+<label className="btn-outline">
     Password
-    <input type='password' className="field" ref={passwordRef} required />
+    <input type={passwordType} onChange={handlePasswordChange} value={passwordInput} className="field" ref={passwordRef} required />
+                     { passwordType==="password"? <VisibilityOffOutlinedIcon  onClick={togglePassword}/> :<RemoveRedEyeOutlinedIcon onClick={togglePassword}/> }
 </label>
 <div className="btm-conditions">
 <span className="left-btm">
