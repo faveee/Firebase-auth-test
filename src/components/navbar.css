@@ -27,8 +27,9 @@ margin-top: 4px;
 } */
   
 .logoicon {
-height: 180px;
-width: 180px;
+
+margin-bottom: -15px;
+margin-top: 5px;
 
 border-radius: 0px;
 }

@@ -8,26 +8,27 @@ import automotive4 from "../../assests/Automotive4.png";
 import automotive5 from "../../assests/Automotive5.png";
 import automotive6 from "../../assests/Automotive6.png";
 
+import video from "../../assests/video.svg";
+
 import LocationOnOutlinedIcon from '@mui/icons-material/LocationOnOutlined';
 import StarIcon from '@mui/icons-material/Star';
 
-import rectangle1 from "../../assests/Rectangle 1.png";
-import rectangle2 from "../../assests/Rectangle 2.png";
-import rectangle3 from "../../assests/Rectangle 3.png";
-import rectangle4 from "../../assests/Rectangle 4.png";
-import rectangle5 from "../../assests/Rectangle 5.png";
-import rectangle6 from "../../assests/Rectangle 6.png";
+import rectangle from "../../assests/rectangle.png";
 
 import about from "../../assests/about.png";
 
 import logo2 from "../../assests/logo2.png"
+
+import candidate1 from "../../assests/candidate1.png";
+import candidate2 from "../../assests/candidate2.png";
+import candidate3 from "../../assests/candidate3.png";
 
 export default function Home() {
   return (
     <div>
       {/* hero section begins */}
       <div>
-        <div>
+        <div >
         <img src={hero} alt="hero" className="herocontainer"/>
         </div>
         <section>
@@ -62,8 +63,9 @@ export default function Home() {
 
 {/* hero section ends */}
 
-                <div>
-                    <h2 className='play'>hello</h2>
+                <div className="play">
+              <img src={video} alt="video" />
+
                 </div>
 
                 {/* job list section begins */}
@@ -79,8 +81,8 @@ export default function Home() {
         <span className="review"><StarIcon fontSize="small" />3.5 Amazing</span>
         <span className="reviewCount">(765 +) </span>
         <div className="buttonContainer">
-        <button><a href="#" >view</a></button>
-        <button><a href="#" >connect</a></button>
+        <button><a href="www.google.com" >view</a></button>
+        <button><a href="www.google.com" >connect</a></button>
         </div>
         </div>
         <div className="card">
@@ -91,8 +93,8 @@ export default function Home() {
         <span className="review"><StarIcon fontSize="small" />2.5 Good</span>
         <span className="reviewCount">(500 +) </span>
         <div className="buttonContainer">
-        <button><a href="#" >view</a></button>
-        <button><a href="#" >connect</a></button>
+        <button><a href="www.google.com" >view</a></button>
+        <button><a href="www.google.com" >connect</a></button>
         </div>
         </div>
         <div className="card">
@@ -103,8 +105,8 @@ export default function Home() {
         <span className="review"><StarIcon fontSize="small" />4.5 Excellent</span>
         <span className="reviewCount">(1000 +) </span>
         <div className="buttonContainer">
-        <button><a href="#" >view</a></button>
-        <button><a href="#" >connect</a></button>
+        <button><a href="www.google.com" >view</a></button>
+        <button><a href="www.google.com" >connect</a></button>
         </div>
         </div>
         <div className="card">
@@ -115,8 +117,8 @@ export default function Home() {
         <span className="review"><StarIcon fontSize="small" />3.5 Amazing</span>
         <span className="reviewCount">(600 +) </span>
         <div className="buttonContainer">
-        <button><a href="#" >view</a></button>
-        <button><a href="#" >connect</a></button>
+        <button><a href="www.google.com" >view</a></button>
+        <button><a href="www.google.com" >connect</a></button>
         </div>
         </div>
         <div className="card">
@@ -127,8 +129,8 @@ export default function Home() {
         <span className="review"><StarIcon fontSize="small" />2.0 Good</span>
         <span className="reviewCount">(400 +) </span>
         <div className="buttonContainer">
-        <button><a href="#" >view</a></button>
-        <button><a href="#" >connect</a></button>
+        <button><a href="www.google.com" >view</a></button>
+        <button><a href="www.google.com" >connect</a></button>
         </div>
         </div>
         <div className="card">
@@ -139,12 +141,12 @@ export default function Home() {
         <span className="review"><StarIcon fontSize="small" />3.5 Amazing</span>
         <span className="reviewCount">(765 +) </span>
         <div className="buttonContainer">
-        <button><a href="#" >view</a></button>
-        <button><a href="#" >connect</a></button>
+        <button><a href="www.google.com" >view</a></button>
+        <button><a href="www.google.com" >connect</a></button>
         </div>
         </div>
       <div className="lastitem">
-      <button className="lastbtn"><a href="#" >View all Jobs</a></button>
+      <button className="lastbtn"><a href="www.google.com" >View all Jobs</a></button>
       </div>
 </div>
                 </section>
@@ -153,65 +155,69 @@ export default function Home() {
                 {/* job list ends */}
 {/* job candidate starts */}
                 <div>
-    <h1>Featured Candidate</h1>
+    <h1 className="candidateHeader">Featured Candidate</h1>
   </div>
 <div className="candidateContainer" >
-  <div >
-  <div >
-        <h2>Electrician</h2>
-        <p>Sali</p>
-        <p>Pay per job</p>
-        <p ><LocationOnOutlinedIcon style={{ color: '#008081' }}/> Ikeja, Lagos State</p>
-        <span ><StarIcon fontSize="small" />3.5 Amazing</span>
-        <span>(765 +) </span>
-        <div>
-        <button><a href="#" >view</a></button>
-        <button><a href="#" >connect</a></button>
+  <div className="candidateSection">
+  <div className="candidateCard">
+    <div>
+    <img src={candidate1} alt="candidate" />
+    </div>
+    <div>
+    <h1 className="candidateTitle">Actively Searching</h1>
+        <p className="candidateName">Adebayo</p>
+        <p className="candidateProfession">Bricklayer</p>
+        <p className="candidateLocation"><LocationOnOutlinedIcon style={{ color: '#008081' }}/> Ketu, Lagos State</p>
+        <span className="candidateReview"><StarIcon fontSize="small" />0.0</span>
+        <div className="candidatebtn">
+        <button><a href="www.google.com" >view</a></button>
+        <button><a href="www.google.com" >connect</a></button>
+        </div>
+    </div>
+        </div>
+        <div className="candidateCard">
+    <div>
+    <img src={candidate2} alt="candidate" />
+    </div>
+    <div>
+    <h1 className="candidateTitle">Actively Searching</h1>
+        <p className="candidateName">Jacob</p>
+        <p className="candidateProfession">Computer Repair</p>
+        <p className="candidateLocation"><LocationOnOutlinedIcon style={{ color: '#008081' }}/> Maryland, Lagos State</p>
+        <span className="candidateReview"><StarIcon fontSize="small" />0.0</span>
+        <div className="candidatebtn">
+        <button><a href="www.google.com" >view</a></button>
+        <button><a href="www.google.com" >connect</a></button>
         </div>
         </div>
-      <div >
-      <button><a href="#" >View all Jobs</a></button>
-      </div>
-      <div >
-        <h2>Electrician</h2>
-        <p>Sali</p>
-        <p>Pay per job</p>
-        <p ><LocationOnOutlinedIcon style={{ color: '#008081' }}/> Ikeja, Lagos State</p>
-        <span ><StarIcon fontSize="small" />3.5 Amazing</span>
-        <span>(765 +) </span>
-        <div>
-        <button><a href="#" >view</a></button>
-        <button><a href="#" >connect</a></button>
+        </div>
+        <div className="candidateCard">
+    <div>
+    <img src={candidate3} alt="candidate" />
+    </div>
+    <div>
+    <h1 className="candidateTitle">Actively Searching</h1>
+        <p className="candidateName">Sarah</p>
+        <p className="candidateProfession">Cleaner</p>
+        <p className="candidateLocation"><LocationOnOutlinedIcon style={{ color: '#008081' }}/> Ikoyi, Lagos State</p>
+        <span className="candidateReview"><StarIcon fontSize="small" />0.0</span>
+        <div className="candidatebtn">
+        <button><a href="www.google.com" >view</a></button>
+        <button><a href="www.google.com" >connect</a></button>
+  
         </div>
         </div>
-      <div>
-      <button><a href="#" >View all Jobs</a></button>
-      </div>
-      <div >
-        <h2>Electrician</h2>
-        <p>Sali</p>
-        <p>Pay per job</p>
-        <p ><LocationOnOutlinedIcon style={{ color: '#008081' }}/> Ikeja, Lagos State</p>
-        <span ><StarIcon fontSize="small" />3.5 Amazing</span>
-        <span>(765 +) </span>
-        <div>
-        <button><a href="#" >view</a></button>
-        <button><a href="#" >connect</a></button>
         </div>
-        </div>
-      <div className="jobCenterBtn">
-      <button><a href="#" >View all Jobs</a></button>
-      </div>
+
   </div>
-  <div>
-  <img src={rectangle1} alt="artisan" />
-  <img src={rectangle2} alt="artisan" />
-  <img src={rectangle3} alt="artisan" />
-  <img src={rectangle4} alt="artisan" />
-  <img src={rectangle5} alt="artisan" />
-  <img src={rectangle6} alt="artisan" />
+  <div className="artisanContainer">
+  <img src={rectangle} alt="artisan" />
   </div>
 </div>
+<div className="viewbtn">
+  <a href="www.google.com">View all Candidate</a>
+</div>
+
 {/* job candidate ends */}
 
 {/* about us */}
@@ -251,7 +257,7 @@ For workshop owners.</p>
 {/* footer starts */}
 <div className="homeFooter">
 <div class="contain">
-  <div class="col">
+  <div className="col">
     <h1>Quick Link</h1>
     <ul>
       <li><a href="#about" alt="about">About Us</a></li>
@@ -261,7 +267,7 @@ For workshop owners.</p>
       <li><a href="www.google.com" alt="FAQ">FAQ</a></li>
     </ul>
   </div>
-  <div class="col">
+  <div className="col">
     <h1>Categories</h1>
     <ul>
       <li><a href="#categories" alt="automotive service">Automotive Service</a></li>
@@ -272,7 +278,7 @@ For workshop owners.</p>
       <li><a href="#categories" alt="generator repair">Generator Repair</a></li>
     </ul>
   </div>
-  <div class="col">
+  <div className="col">
     <h1>Communities</h1>
     <ul>
       <li><a href="www.linkedin.com" alt="linkedin">Linkedin</a></li>
@@ -283,7 +289,7 @@ For workshop owners.</p>
       <li><a href="www.pinterest.com" alt="pinterest">Pinterest</a></li>
     </ul>
   </div>
-  <div class="col">
+  <div className="col">
     <h1>Contact Us</h1>
   </div>
   <div className="col"></div>
@@ -291,6 +297,9 @@ For workshop owners.</p>
 
 
 </div>
-    </div>
+</div>
+
   )
 }
+
+

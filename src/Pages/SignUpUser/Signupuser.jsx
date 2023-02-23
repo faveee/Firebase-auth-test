@@ -6,7 +6,6 @@ import header3 from "../../assests/header3.png";
 
 
 const SignUp = () => {
-
     const { error, SignUp, currentuser } = useAuth()
     const [err, setError] = useState("")
     const [backError, setBackError] = useState("")
@@ -25,15 +24,15 @@ const SignUp = () => {
     })
     const navigate = useNavigate();
     
-    // useEffect(() => {
-    //     console.log("i am in")
-    //     if (error) {
-    //         setInterval(() => {
-    //             setBackError("")
-    //         }, 5000)
-    //         setBackError(error)
-    //     }
-    // }, [error, currentuser])
+    useEffect(() => {
+        console.log("i am in")
+        if (error) {
+            setInterval(() => {
+                setBackError("")
+            }, 5000)
+            setBackError(error)
+        }
+    }, [error, currentuser])
     const UserHandler = (e) => {
         const { name, value } = e.target;
         console.log(name +"::::::::::"+value)
@@ -60,19 +59,17 @@ const SignUp = () => {
             }, 5000)
             return setError("Password do not match")
         }
-
-        
-        else if (!password.length >= 6 || !confirmPassword.length >= 6) {
+        else if (password.length < 6 || confirmPassword.length < 6) {
             setInterval(() => {
                 setError("")
             }, 5000)
-            return setError("Password Must be Greater then 6 Length")
+            return setError("Password must be at least 6 characters long")
         }
-
         else {
-
-            SignUp(email, password, confirmPassword, FirstName, LastName, Profession, Phone, WorkAddress, State, Age)
-            {
+            try {
+                setError("");
+                setLoading(true);
+                await SignUp(FirstName, LastName, Profession, email, Phone, WorkAddress, State, Age, password);
                 currentuser && setUser({
                     FirstName: "",
                     LastName: "",
@@ -84,23 +81,15 @@ const SignUp = () => {
                     Age: "",
                     password: "",
                     confirmPassword: ""
-                })
+                });
+                navigate("/dashboard");
+            } catch (error) {
+                setError("Failed to create an account");
+            }
         }
+        setLoading(false);
     }
 
-        try {
-            setError("");
-            setLoading(true);
-           await SignUp(user.FirstName, user.LastName, user.Profession, user.email, user.Phone, user.WorkAddress, user.State, user.Age, user.password);
-           navigate("/dashboard");
-        } catch (error) {
-    
-    setError("Failed to create an account");
-        }
-        
-    setLoading(false);
-    }
-    
     return (
         <div className='box'>
             {
@@ -114,39 +103,49 @@ const SignUp = () => {
            <img src={header3} alt="SignUpHeader" className="signup-header" />
             </div>
             <form onSubmit={SubmitHandler} className="form">
-                <h2 className="formTitle">Sign-Up as User</h2>
+                <h2 className="formTitle">Sign-Up as an User</h2>
                 <div className="inputfield">
                     First Name
-                    <input type="text" value={user.FirstName} name='FirstName' onChange={UserHandler} />
+                    <input type="text" value={user.FirstName} name='FirstName' onChange={UserHandler} required/>
                 </div>
                 <div className="inputfield">
                     Last Name
-                    <input type="text" value={user.LastName} name='LastName' onChange={UserHandler} />
+                    <input type="text" value={user.LastName} name='LastName' onChange={UserHandler} required />
+                </div>
+                <div className="inputfield">
+                    Profession
+                    <input type="text" value={user.Profession} name='Profession' onChange={UserHandler} required />
                 </div>
                 <div className="inputfield">
                     Email
-                    <input type="text" value={user.email} name='email' onChange={UserHandler} />
+                    <input type="text" value={user.email} name='email' onChange={UserHandler} required />
                 </div>
                 <div className="inputfield">
                     Phone
-                    <input type="text" value={user.Phone} name='Phone' onChange={UserHandler} />
+                    <input type="text" value={user.Phone} name='Phone' onChange={UserHandler} required />
                 </div>
                 <div className="inputfield">
-                    Address
-                    <input type="text" value={user.WorkAddress} name='WorkAddress' onChange={UserHandler} />
+                    Work Address
+                    <input type="text" value={user.WorkAddress} name='WorkAddress' onChange={UserHandler} required/>
                 </div> 
+                <div className="formSection">
                 <div  className="inputfield">
                     State
-                    <input type="text" value={user.State} name='State' onChange={UserHandler} />
+                    <input type="text" value={user.State} name='State' onChange={UserHandler} required/>
 </div>
-                <div className="formSection">
+<div  className="inputfield">
+                    Age
+                    <input type="text" value={user.Age} name='Age' onChange={UserHandler} required/>
+                    </div>
+                    </div>
+                    <div className="formSection">
                     <div>
                     Password
-                    <input type="password" value={user.password} name='password' onChange={UserHandler} />
+                    <input type="password" value={user.password} name='password' onChange={UserHandler} required />
                     </div>
                     <div>
                     Confirm Password
-                    <input type="password" value={user.confirmPassword} name='confirmPassword' onChange={UserHandler} />
+                    <input type="password" value={user.confirmPassword} name='confirmPassword' onChange={UserHandler} required />
                     </div>
                 </div>
                 <div className="bottom">
@@ -154,7 +153,7 @@ const SignUp = () => {
 <span id="opt">By creating an account you agree to our<a href="www.google.com" alt="Terms and Condition">Terms of Service</a></span>
                 </div>
                 <div className="btn-ctn">
-                <button type='submit'>Create Account</button>
+                <button disabled={loading} type='submit'>Create Account</button>
                 </div>
                 <div className="footerBtm">
         Already have an account? <Link to="/signin">Log In</Link>

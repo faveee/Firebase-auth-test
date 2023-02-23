@@ -37,7 +37,7 @@ padding: 61px 53px;
 .automotiveContainer {
     display: inline-block;
     width: 96px;
-    padding: 0 100px 132px 100px;
+    padding: 0 100px 80px 100px;
 }
 
 .automotiveContainer p {
@@ -52,10 +52,8 @@ text-align: center;
 
 /* hero section ends */
 
-.play {
-    background-color: #008081;
-    width: 515px;
-    height: 420px;
+.play img {
+   padding: 0px 218px 20px 176px;
     
 }
 
@@ -193,8 +191,130 @@ margin: 51px 89px;
 .candidateContainer {
     display: flex;
     justify-content: space-between;
+    
 
 }
+
+.candidateCard {
+display: flex;
+gap: 20px;
+width: 697px;
+height: 310px;
+    margin: 56px 2px 18px 60px;
+
+    background: #FFFFFF;
+border: 3px solid rgba(0, 0, 0, 0.1);
+box-shadow: 0px 4px 63px 7px rgba(0, 0, 0, 0.1);
+border-radius: 8px;
+}
+
+.candidateCard img {
+    padding: 58px 0 112px 21px;
+}
+
+.candidateHeader{
+    text-align: center;
+    font-weight: 600;
+    font-size: 30px;
+    line-height: 45px;
+}
+
+.candidateTitle  {
+    font-weight: 600;
+font-size: 24px;
+color: #3357D6;
+    
+padding: 21px 0 0 39px;
+    }
+    
+    .candidateName {
+        font-weight: 500;
+font-size: 18px;
+line-height: 27px;
+padding: 0 0 16px 39px;
+    }
+
+    .candidateProfession {
+font-weight: 500;
+font-size: 18px;
+line-height: 22px;
+color: rgba(0, 0, 0, 0.7);
+
+padding: 0 0 6px 39px;
+    }
+    
+    .candidateLocation {
+        font-weight: 500;
+font-size: 18px;
+line-height: 27px;
+
+color: rgba(0, 0, 0, 0.7);
+
+        padding:  0 0 7px 39px;
+    }
+    
+    .candidateReview {
+        padding: 0 11px 0 21px;
+        font-size: small;
+        color: #FD7D06;
+        padding:  0 0 0 39px;
+    }
+
+    
+    .candidatebtn {
+        display: flex;
+        gap: 5px;
+        padding: 23px 6px 49px 18px;
+    }
+    
+    .candidateContainer button {
+        border: none;
+    outline: none;
+    text-align: center;
+    background: #008081;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 8px;
+    
+    width: 103px;
+    height: 46px;
+    
+    }
+    
+    .candidateContainer button a {
+        text-decoration: none;
+        color: #FFFFFF;
+    
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 22px;
+    }
+.artisanContainer {
+    width: 100%;
+    overflow: hidden;
+}
+    
+    .artisanContainer img {
+        max-width: 875px;
+        margin-left: -25%;
+    
+    }
+    
+    .viewbtn {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    
+    .viewbtn a {
+        font-weight: 700;
+font-size: 20px;
+    
+        text-decoration: none;
+        color: #008081;
+
+    }
 
 /* about container  */
 
@@ -229,6 +349,10 @@ text-align: center;
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.about p {
+    padding: 0 20px 0 20px;
 }
 
 .about button {
@@ -280,7 +404,6 @@ line-height: 45px;
     margin-top: -20px;
     font-weight: 400;
 font-size: 18px;
-line-height: 27px;
     color: #FFFFFF;
     padding: 0 100px 100px 100px;
 }

@@ -64,7 +64,7 @@ setLoading(false);
 <label className="btn-outline">
     Password
     <input type={passwordType} onChange={handlePasswordChange} value={passwordInput} className="field" ref={passwordRef} required />
-                     { passwordType==="password"? <VisibilityOffOutlinedIcon  onClick={togglePassword}/> :<RemoveRedEyeOutlinedIcon onClick={togglePassword}/> }
+                     { passwordType==="password"? <VisibilityOffOutlinedIcon  onClick={togglePassword} className="on"/> :<RemoveRedEyeOutlinedIcon onClick={togglePassword} className="off"/> }
 </label>
 <div className="btm-conditions">
 <span className="left-btm">
@@ -76,7 +76,7 @@ setLoading(false);
 </div>
 <button disabled={loading} type='submit'>Log in</button>
 <div className="form-footer">
-Don't have an account? <Link to="/signup" className={'footer'}>Sign-Up</Link>
+Don't have an account? <Link to="/signupuser" className={'footer'}>Sign-Up</Link>
     </div>
         </form>    
     </div>

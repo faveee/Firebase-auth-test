@@ -47,7 +47,7 @@ const SignUp = () => {
     const SubmitHandler = async (e) => {
         e.preventDefault()
         const {email, password, confirmPassword, FirstName, LastName, Profession, Phone, WorkAddress, State, Age } = user
-        if (password == "" || confirmPassword == "" || email == "" || FirstName == "" || LastName == "" || Profession == "" || Phone == "" || WorkAddress == "" || State == "" || Age == "") {
+        if (password === "" || confirmPassword === "" || email === "" || FirstName === "" || LastName === "" || Profession === "" || Phone === "" || WorkAddress === "" || State === "" || Age === "") {
             setInterval(() => {
                 setError("")
             }, 5000)
@@ -59,19 +59,17 @@ const SignUp = () => {
             }, 5000)
             return setError("Password do not match")
         }
-
-        
-        else if (!password.length >= 6 || !confirmPassword.length >= 6) {
+        else if (password.length < 6 || confirmPassword.length < 6) {
             setInterval(() => {
                 setError("")
             }, 5000)
-            return setError("Password Must be Greater then 6 Length")
+            return setError("Password must be at least 6 characters long")
         }
-
         else {
-
-            SignUp(email, password, confirmPassword, FirstName, LastName, Profession, Phone, WorkAddress, State, Age)
-            {
+            try {
+                setError("");
+                setLoading(true);
+                await SignUp(FirstName, LastName, Profession, email, Phone, WorkAddress, State, Age, password);
                 currentuser && setUser({
                     FirstName: "",
                     LastName: "",
@@ -83,23 +81,14 @@ const SignUp = () => {
                     Age: "",
                     password: "",
                     confirmPassword: ""
-                })
+                });
+                navigate("/dashboard");
+            } catch (error) {
+                setError("Failed to create an account");
+            }
         }
+        setLoading(false);
     }
-
-        try {
-            setError("");
-            setLoading(true);
-           await SignUp(user.FirstName, user.LastName, user.Profession, user.email, user.Phone, user.WorkAddress, user.State, user.Age, user.password);
-           navigate("/dashboard");
-        } catch (error) {
-    
-    setError("Failed to create an account");
-        }
-        
-    setLoading(false);
-    }
-    
 
     return (
         <div className='box'>
