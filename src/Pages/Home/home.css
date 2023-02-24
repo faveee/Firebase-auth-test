@@ -12,11 +12,74 @@ body {
 }
 
 .herocontainer {
-    margin-top: -50px;
+    margin-top: -70px;
     width: 100%;
     height: 777px;
 }
 
+.heroSearch {
+    display: flex;
+    flex-direction: row;
+    gap: 2px;
+    padding: 480px 675px 213px 84px;
+border-radius: 8px;
+}
+
+.herobtn {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;  
+}
+
+.herobtnFirst {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+
+    outline: none;
+    border: none;
+    
+padding: 15px 30px 15px 30px; 
+
+background: #D9D9D9;
+border-radius: 8px; 
+}
+
+.herotext {
+    text-align: center;
+    font-weight: 500;
+font-size: 18px;
+padding: 0 20px 0 20px;
+
+color: rgba(0, 0, 0, 0.5);
+
+
+}
+
+.herobtnLast {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+
+    outline: none;
+    border: none;
+    appearance: none;
+    background-color: #008081;
+
+    padding: 15px 50px 15px 50px; 
+    border-radius: 8px;
+}
+
+.herotextL {
+    text-align: center;
+    font-weight: 500;
+font-size: 18px;
+color: #FFFFFF;
+padding-left: 20px;
+}
 
 section h1 {
     width: 100%;
@@ -304,6 +367,7 @@ color: rgba(0, 0, 0, 0.7);
         display: flex;
         justify-content: center;
         align-items: center;
+        padding-top: 20px;
     }
 
     
@@ -379,17 +443,30 @@ padding: 10px 20px 10px 20px;
 
 /* about ends */
 
+
+/* client features starts */
 .clientContainer {
-    padding: 130px 130px;
+    padding: 30px 30px;
     background-color: #D9D9D9;
 }
 
-.clientContainer h1 {
+ .clientHeader {
     text-align: center;
 font-weight: 600;
-font-size: 30px;
-line-height: 45px;
+font-size: 20px;
+padding-bottom: 19px ;
+margin-top: -10px ;
 }
+
+.partners {
+    display: flex;
+    justify-content: space-around;
+   flex-shrink: 0;
+}
+
+/* client features ends */
+
+/* license starts */
 
 .licenseContainer {
     background-color: #008081;
@@ -407,6 +484,7 @@ font-size: 18px;
     color: #FFFFFF;
     padding: 0 100px 100px 100px;
 }
+/* lisence ends */
 
 /* footer starts */
 
@@ -414,15 +492,15 @@ font-size: 18px;
     width: 100%;
     display: flex;
     background-color: #4C516D;
-    border-bottom: 3px solid #000000; 
     margin-top: -20px;
   }
 
   .homeFooter .col {
     float: left;
     box-sizing: border-box;
-    padding: 58px 20px 58px 110px;
+    padding: 58px 20px 58px 100px; 
   }
+
 
   .homeFooter .col h1 {
     font-style: normal;
@@ -451,9 +529,60 @@ color: #FFFFFF;
     color: #000000;
   }
 
-  .border {
-    padding: 0px;
-   
+  .col p {
+    color: #FFFFFF;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 36px;
+    cursor: pointer;
+    gap: 20px;
   }
+
+.col input {
+    margin-top: 5px;
+    outline: none;
+    border: none;
+    padding: 15px;
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.col input::placeholder {
+    color: #FFFFFF;
+    opacity: 0.5;
+}
+
+.col button {
+    border: none;
+    outline: none;
+    padding: 15px;
+    background-color: #008081;
+    color: #FFFFFF;
+    cursor: pointer;
+}
+
+.endSection {
+    display: flex;
+    justify-content: space-between;
+    border-top: 2px solid #FFFFFF;
+    margin: 30px 60px;
+    padding-top: 40px;
+}
+
+.endIcon img {
+    padding: 0 5px 0 5px;
+}
+
+
+.endText {
+    color: #FFFFFF;
+    font-weight: 200;
+font-size: 15px;
+}
+
+a.topSection {
+padding: 10px 5px 0 5px;
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 20px;
+}
 
 /* footer ends */

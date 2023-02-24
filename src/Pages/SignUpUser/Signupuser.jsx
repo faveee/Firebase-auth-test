@@ -110,19 +110,19 @@ const SignUp = () => {
                 </div>
                 <div className="inputfield">
                     Last Name
-                    <input type="text" value={user.LastName} name='LastName' onChange={UserHandler} required />
+                    <input type="text" value={user.LastName} name='LastName' onChange={UserHandler} required/>
                 </div>
                 <div className="inputfield">
                     Profession
-                    <input type="text" value={user.Profession} name='Profession' onChange={UserHandler} required />
+                    <input type="text" value={user.Profession} name='Profession' onChange={UserHandler} required/>
                 </div>
                 <div className="inputfield">
                     Email
-                    <input type="text" value={user.email} name='email' onChange={UserHandler} required />
+                    <input type="text" value={user.email} name='email' onChange={UserHandler} required/>
                 </div>
                 <div className="inputfield">
                     Phone
-                    <input type="text" value={user.Phone} name='Phone' onChange={UserHandler} required />
+                    <input type="text" value={user.Phone} name='Phone' onChange={UserHandler} required/>
                 </div>
                 <div className="inputfield">
                     Work Address
@@ -141,11 +141,11 @@ const SignUp = () => {
                     <div className="formSection">
                     <div>
                     Password
-                    <input type="password" value={user.password} name='password' onChange={UserHandler} required />
+                    <input type="password" value={user.password} name='password' onChange={UserHandler} required/>
                     </div>
                     <div>
                     Confirm Password
-                    <input type="password" value={user.confirmPassword} name='confirmPassword' onChange={UserHandler} required />
+                    <input type="password" value={user.confirmPassword} name='confirmPassword' onChange={UserHandler} required/>
                     </div>
                 </div>
                 <div className="bottom">

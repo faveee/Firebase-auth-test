@@ -1,6 +1,11 @@
 import React from 'react'
 import "./home.css";
+
 import hero from "../../assests/hero.png";
+import ExpandMoreOutlinedIcon from '@mui/icons-material/ExpandMoreOutlined';
+import ListOutlinedIcon from '@mui/icons-material/ListOutlined';
+import SearchOutlinedIcon from '@mui/icons-material/SearchOutlined';
+
 import automotive1 from "../../assests/Automotive1.png";
 import automotive2 from "../../assests/Automotive2.png";
 import automotive3 from "../../assests/Automotive3.png";
@@ -23,14 +28,52 @@ import candidate1 from "../../assests/candidate1.png";
 import candidate2 from "../../assests/candidate2.png";
 import candidate3 from "../../assests/candidate3.png";
 
+import partners1 from "../../assests/partners1.png";
+import partners2 from "../../assests/partners2.png";
+import partners3 from "../../assests/partners3.png";
+import partners4 from "../../assests/partners4.png";
+
+import PhoneIphoneOutlinedIcon from '@mui/icons-material/PhoneIphoneOutlined';
+import EmailOutlinedIcon from '@mui/icons-material/EmailOutlined';
+
+import vector1 from "../../assests/Vector1.png";
+import vector2 from "../../assests/Vector2.png";
+import vector3 from "../../assests/Vector3.png";
+import vector4 from "../../assests/Vector4.png";
+import vector5 from "../../assests/Vector5.png";
+import KeyboardArrowUpOutlinedIcon from '@mui/icons-material/KeyboardArrowUpOutlined';
+
 export default function Home() {
   return (
     <div>
       {/* hero section begins */}
       <div>
-        <div >
-        <img src={hero} alt="hero" className="herocontainer"/>
-        </div>
+        <div className="herocontainer" id="top"
+style={{ backgroundImage: 'url(' + hero + ')' }}>
+  <div className="heroSearch">
+    <div className="herobtn">
+    <button className="herobtnFirst">
+  <LocationOnOutlinedIcon style={{ color: '#008081', fontSize: 'medium' }}/>
+  <p className="herotext">Location</p>
+  <ExpandMoreOutlinedIcon style={{ fontSize: 'medium' }} />
+  </button>
+    </div>
+<div className="herobtn">
+<button className="herobtnFirst">
+  <ListOutlinedIcon style={{ color: '#008081', fontSize: 'medium' }} />
+  <p className="herotext">Categories</p>
+  <ExpandMoreOutlinedIcon style={{ fontSize: 'medium' }}/>
+  </button>
+</div>
+  <div className="herobtn">
+  <button className="herobtnLast">
+  <SearchOutlinedIcon style={{ color: '#FFFFFF', fontSize: 'medium' }} />
+  <p className="herotextL">Search</p>
+  </button>
+  </div>
+  </div>
+</div>
+
         <section>
             <h1 className="jobListing">Job Categories</h1>
         </section>
@@ -240,7 +283,15 @@ easy transaction tracking and sales record.
 
   {/* client data */}
 <div className="clientContainer">
-  <h1>Some of Our Clients</h1>
+  <div className="clientHeader">
+  <h1>Some of Our Partners</h1>
+</div>
+<div className="partners">
+<img src={partners1} alt="partners" />
+<img src={partners2} alt="partners" />
+<img src={partners3} alt="partners" />
+<img src={partners4} alt="partners" />
+</div>
 </div>
 {/* client feature ends */}
 
@@ -256,7 +307,7 @@ For workshop owners.</p>
 
 {/* footer starts */}
 <div className="homeFooter">
-<div class="contain">
+<div className="contain">
   <div className="col">
     <h1>Quick Link</h1>
     <ul>
@@ -291,11 +342,32 @@ For workshop owners.</p>
   </div>
   <div className="col">
     <h1>Contact Us</h1>
+<div>
+  <p><PhoneIphoneOutlinedIcon style={{ color: 'white', fontSize: 'medium' }} /> +234 824 345 3961</p>
+  <p><EmailOutlinedIcon style={{ color: 'white', fontSize: 'medium' }} /> Hello@handymanny.org</p>
+</div>
+<h1>Newsletter</h1>
+<div>
+<input placeholder="Your email"/><button>Subcribe</button>
+</div>
   </div>
-  <div className="col"></div>
-    </div>
-
-
+  
+<div className="footerBottom">
+  .
+  </div>
+  <div className="endSection">
+  <div className="endIcon">
+  <img src={vector1} alt="facebook" />
+    <img src={vector2} alt="linkedin" />
+    <img src={vector3} alt="twitter" />
+    <img src={vector4} alt="pinterest" />
+    <img src={vector5} alt="instagram" />
+  </div>
+  <div className="endText">
+    Copyright&copy; 2023 Handymanny. All rights reserved <a href="#top" alt="Back to top" className="topSection"><KeyboardArrowUpOutlinedIcon style={{ color: 'white'}} /></a>
+  </div>
+  </div>
+</div>
 </div>
 </div>
 

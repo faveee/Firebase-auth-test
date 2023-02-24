@@ -29,7 +29,6 @@ try {
             <br />
             <Link to="/update-profile">Update Profile</Link>
         </div>
-      <h1>Dashboard</h1>
       <button onClick={handleLogout}>Log Out</button>
     </div>
   )

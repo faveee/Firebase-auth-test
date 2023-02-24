@@ -106,46 +106,46 @@ const SignUp = () => {
                 <h2 className="formTitle">Sign-Up as an Artisan</h2>
                 <div className="inputfield">
                     First Name
-                    <input type="text" value={user.FirstName} name='FirstName' onChange={UserHandler} />
+                    <input type="text" value={user.FirstName} name='FirstName' onChange={UserHandler} required/>
                 </div>
                 <div className="inputfield">
                     Last Name
-                    <input type="text" value={user.LastName} name='LastName' onChange={UserHandler} />
+                    <input type="text" value={user.LastName} name='LastName' onChange={UserHandler} required/>
                 </div>
                 <div className="inputfield">
                     Profession
-                    <input type="text" value={user.Profession} name='Profession' onChange={UserHandler} />
+                    <input type="text" value={user.Profession} name='Profession' onChange={UserHandler} required/>
                 </div>
                 <div className="inputfield">
                     Email
-                    <input type="text" value={user.email} name='email' onChange={UserHandler} />
+                    <input type="text" value={user.email} name='email' onChange={UserHandler} required/>
                 </div>
                 <div className="inputfield">
                     Phone
-                    <input type="text" value={user.Phone} name='Phone' onChange={UserHandler} />
+                    <input type="text" value={user.Phone} name='Phone' onChange={UserHandler} required/>
                 </div>
                 <div className="inputfield">
                     Work Address
-                    <input type="text" value={user.WorkAddress} name='WorkAddress' onChange={UserHandler} />
+                    <input type="text" value={user.WorkAddress} name='WorkAddress' onChange={UserHandler} required/>
                 </div> 
                 <div className="formSection">
                 <div  className="inputfield">
                     State
-                    <input type="text" value={user.State} name='State' onChange={UserHandler} />
+                    <input type="text" value={user.State} name='State' onChange={UserHandler} required/>
 </div>
 <div  className="inputfield">
                     Age
-                    <input type="text" value={user.Age} name='Age' onChange={UserHandler} />
+                    <input type="text" value={user.Age} name='Age' onChange={UserHandler} required/>
                     </div>
                     </div>
                     <div className="formSection">
                     <div>
                     Password
-                    <input type="password" value={user.password} name='password' onChange={UserHandler} />
+                    <input type="password" value={user.password} name='password' onChange={UserHandler} required/>
                     </div>
                     <div>
                     Confirm Password
-                    <input type="password" value={user.confirmPassword} name='confirmPassword' onChange={UserHandler} />
+                    <input type="password" value={user.confirmPassword} name='confirmPassword' onChange={UserHandler} required/>
                     </div>
                 </div>
                 <div className="bottom">
