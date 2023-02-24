@@ -59,11 +59,16 @@
     width: 343px;
     }
     
+    .toggle {
+        margin-top: -50px;
+        margin-left: 300px;
+        
+    }
 
     .bottom {
         display: flex;
         flex-direction: row;
-        padding: 30px 30px;
+        margin-top: 50px;
         gap: 10px
     }
     

@@ -4,8 +4,25 @@ import { useAuth } from '../../contexts/AuthContext';
 import { Link, useNavigate } from "react-router-dom";
 import header3 from "../../assests/header3.png";
 
+import RemoveRedEyeOutlinedIcon from '@mui/icons-material/RemoveRedEyeOutlined';
+import VisibilityOffOutlinedIcon from '@mui/icons-material/VisibilityOffOutlined';
 
 const SignUp = () => {
+
+    const [passwordType, setPasswordType] = useState("password");
+    const [passwordInput, setPasswordInput] = useState("");
+    const handlePasswordChange =(evnt)=>{
+        setPasswordInput(evnt.target.value);
+    }
+    const togglePassword =()=>{
+      if(passwordType==="password")
+      {
+       setPasswordType("text")
+       return;
+      }
+      setPasswordType("password")
+    }
+
     const { error, SignUp, currentuser } = useAuth()
     const [err, setError] = useState("")
     const [backError, setBackError] = useState("")
@@ -142,10 +159,16 @@ const SignUp = () => {
                     <div>
                     Password
                     <input type="password" value={user.password} name='password' onChange={UserHandler} required/>
+                    <div className="toggle">
+                 { passwordType==="password"? <VisibilityOffOutlinedIcon  onClick={togglePassword} /> :<RemoveRedEyeOutlinedIcon onClick={togglePassword}/> }
+                </div>
                     </div>
                     <div>
                     Confirm Password
-                    <input type="password" value={user.confirmPassword} name='confirmPassword' onChange={UserHandler} required/>
+                    <input type="password" value={user.confirmPassword} name='confirmPassword' onChange={UserHandler} required/>                    
+                    <div className="toggle">
+                 { passwordType==="password"? <VisibilityOffOutlinedIcon  onClick={togglePassword} /> :<RemoveRedEyeOutlinedIcon onClick={togglePassword}/> }
+                </div>
                     </div>
                 </div>
                 <div className="bottom">

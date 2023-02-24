@@ -77,7 +77,8 @@ color: white;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  padding: 20px 22px;
+  padding-top: 80px;
+  padding-bottom: 20px;
 gap: 370px;
 }
 
@@ -152,15 +153,11 @@ padding: 64px 61px;
     color: #008081;
   }
 
-  .btn-outline {
-    position: relative;
-    display: flex;
-  }
 
-  .btn-outline .on .off {
-    position: absolute;
-    top: 38%;
-    right: 16%;
+
+  .btn-outline {
+padding-left: 680px;
+margin-top: -70px;
   }
   
   

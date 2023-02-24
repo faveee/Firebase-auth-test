@@ -63,10 +63,13 @@ setLoading(false);
     Email/Phone
     <input type='email' className="field" ref={emailRef} required />
 </label>
-<label className="btn-outline">
+<label>
     Password
     <input type={passwordType} onChange={handlePasswordChange} value={passwordInput} className="field" ref={passwordRef} required />
-                     { passwordType==="password"? <VisibilityOffOutlinedIcon  onClick={togglePassword} className="on"/> :<RemoveRedEyeOutlinedIcon onClick={togglePassword} className="off"/> }
+    <div className="btn-outline">
+    { passwordType==="password"? <VisibilityOffOutlinedIcon  onClick={togglePassword} className="on"/> :<RemoveRedEyeOutlinedIcon onClick={togglePassword} className="off"/> }
+    </div>
+                  
 </label>
 <div className="btm-conditions">
 <span className="left-btm">
