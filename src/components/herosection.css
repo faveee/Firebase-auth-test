@@ -5,15 +5,15 @@
 
 body {
     font-family: Poppins;
-    width: 100%;
+    box-sizing: border-box;
 }
 
 .herocontainer {
     margin-top: -50px;
     width: 100%;
     height: 777px;
-}
 
+}
 
 section h1 {
     width: 100%;
@@ -45,4 +45,17 @@ letter-spacing: 0em;
 white-space: nowrap;
 text-align: center;
 
+}
+
+@media (max-width: 768px) {
+.herocontainer {
+    max-width: 100%;
+    height: auto;
+}
+
+    .automotiveContainer {
+        display: grid;
+        max-width: fit-content;
+        background-color: aqua;
+    }
 }

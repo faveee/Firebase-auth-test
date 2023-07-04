@@ -9,8 +9,6 @@ import VisibilityOffOutlinedIcon from '@mui/icons-material/VisibilityOffOutlined
 
 export default function Login() {
 
-    const [open, setOpen] = useState(false);
-
     const [passwordType, setPasswordType] = useState("password");
     const [passwordInput, setPasswordInput] = useState("");
     const handlePasswordChange =(evnt)=>{

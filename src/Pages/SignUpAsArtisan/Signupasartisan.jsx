@@ -2,12 +2,10 @@ import "./signupasartisan.css";
 import React, { useEffect, useState } from 'react';
 import { useAuth } from '../../contexts/AuthContext';
 import { Link, useNavigate } from "react-router-dom";
-import header2 from "../../assests/header2.png";
+import header3 from "../../assests/header3.png";
 
 import RemoveRedEyeOutlinedIcon from '@mui/icons-material/RemoveRedEyeOutlined';
 import VisibilityOffOutlinedIcon from '@mui/icons-material/VisibilityOffOutlined';
-
-
 
 const SignUp = () => {
 
@@ -119,10 +117,10 @@ const SignUp = () => {
                 )
             }
             <div>
-           <img src={header2} alt="SignUpHeader" className="signup-header" />
+           <img src={header3} alt="SignUpHeader" className="signup-header" />
             </div>
             <form onSubmit={SubmitHandler} className="form">
-                <h2 className="formTitle">Sign-Up as an Artisan</h2>
+                <h2 className="formTitle">Sign-Up as Artisan</h2>
                 <div className="inputfield">
                     First Name
                     <input type="text" value={user.FirstName} name='FirstName' onChange={UserHandler} required/>
@@ -160,21 +158,21 @@ const SignUp = () => {
                     <div className="formSection">
                     <div>
                     Password
-                    <input type="password" value={user.password} name='password' onChange={UserHandler} required/>
-                    <div className="toggle">
-                 { passwordType==="password"? <VisibilityOffOutlinedIcon  onClick={togglePassword} /> :<RemoveRedEyeOutlinedIcon onClick={togglePassword} /> }
+                    <input type={passwordType} value={user.password} name='password' onChange={UserHandler} required/>
+                    <div className="toggle" onChange={handlePasswordChange} value={passwordInput}>
+                 { passwordType==="password"? <VisibilityOffOutlinedIcon  onClick={togglePassword} /> :<RemoveRedEyeOutlinedIcon onClick={togglePassword}/> }
                 </div>
                     </div>
                     <div>
                     Confirm Password
-                    <input type="password" value={user.confirmPassword} name='confirmPassword' onChange={UserHandler} required/>
-                    <div className="toggle">
-                 { passwordType==="password"? <VisibilityOffOutlinedIcon  onClick={togglePassword}/> :<RemoveRedEyeOutlinedIcon onClick={togglePassword} /> }
+                    <input type={passwordType} value={user.confirmPassword} name='confirmPassword' onChange={UserHandler} required/>                    
+                    <div className="toggle" onChange={handlePasswordChange} value={passwordInput}>
+                 { passwordType==="password"? <VisibilityOffOutlinedIcon  onClick={togglePassword} /> :<RemoveRedEyeOutlinedIcon onClick={togglePassword}/> }
                 </div>
                     </div>
                 </div>
                 <div className="bottom">
-                <input type="checkbox" id="opt" />
+                <input type="checkbox" id="opt" required />
 <span id="opt">By creating an account you agree to our<a href="www.google.com" alt="Terms and Condition">Terms of Service</a></span>
                 </div>
                 <div className="btn-ctn">

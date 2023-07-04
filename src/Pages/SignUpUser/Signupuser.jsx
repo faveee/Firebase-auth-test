@@ -2,27 +2,13 @@ import "./signupuser.css";
 import React, { useEffect, useState } from 'react';
 import { useAuth } from '../../contexts/AuthContext';
 import { Link, useNavigate } from "react-router-dom";
-import header3 from "../../assests/header3.png";
+import header2 from "../../assests/header2.png";
 
 import RemoveRedEyeOutlinedIcon from '@mui/icons-material/RemoveRedEyeOutlined';
 import VisibilityOffOutlinedIcon from '@mui/icons-material/VisibilityOffOutlined';
 
+
 const SignUp = () => {
-
-    const [passwordType, setPasswordType] = useState("password");
-    const [passwordInput, setPasswordInput] = useState("");
-    const handlePasswordChange =(evnt)=>{
-        setPasswordInput(evnt.target.value);
-    }
-    const togglePassword =()=>{
-      if(passwordType==="password")
-      {
-       setPasswordType("text")
-       return;
-      }
-      setPasswordType("password")
-    }
-
     const { error, SignUp, currentuser } = useAuth()
     const [err, setError] = useState("")
     const [backError, setBackError] = useState("")
@@ -40,6 +26,20 @@ const SignUp = () => {
         confirmPassword: ""
     })
     const navigate = useNavigate();
+
+    const [passwordType, setPasswordType] = useState("password");
+    const [passwordInput, setPasswordInput] = useState("");
+    const handlePasswordChange =(evnt)=>{
+        setPasswordInput(evnt.target.value);
+    }
+    const togglePassword =()=>{
+      if(passwordType==="password")
+      {
+       setPasswordType("text")
+       return;
+      }
+      setPasswordType("password")
+    }
     
     useEffect(() => {
         console.log("i am in")
@@ -117,62 +117,57 @@ const SignUp = () => {
                 )
             }
             <div>
-           <img src={header3} alt="SignUpHeader" className="signup-header" />
+           <img src={header2} alt="SignUpHeader" className="signup-header" />
             </div>
             <form onSubmit={SubmitHandler} className="form">
-                <h2 className="formTitle">Sign-Up as an User</h2>
+                <h2 className="formTitle">Sign-Up as User</h2>
                 <div className="inputfield">
                     First Name
-                    <input type="text" value={user.FirstName} name='FirstName' onChange={UserHandler} required/>
+                    <input type="text" value={user.FirstName} name='FirstName' onChange={UserHandler} required />
                 </div>
                 <div className="inputfield">
                     Last Name
-                    <input type="text" value={user.LastName} name='LastName' onChange={UserHandler} required/>
+                    <input type="text" value={user.LastName} name='LastName' onChange={UserHandler} required />
                 </div>
                 <div className="inputfield">
                     Profession
-                    <input type="text" value={user.Profession} name='Profession' onChange={UserHandler} required/>
+                    <input type="text" value={user.Profession} name='Profession' onChange={UserHandler} required />
                 </div>
                 <div className="inputfield">
                     Email
-                    <input type="text" value={user.email} name='email' onChange={UserHandler} required/>
+                    <input type="text" value={user.email} name='email' onChange={UserHandler} required />
                 </div>
                 <div className="inputfield">
                     Phone
-                    <input type="text" value={user.Phone} name='Phone' onChange={UserHandler} required/>
+                    <input type="text" value={user.Phone} name='Phone' onChange={UserHandler} required />
                 </div>
                 <div className="inputfield">
                     Work Address
-                    <input type="text" value={user.WorkAddress} name='WorkAddress' onChange={UserHandler} required/>
+                    <input type="text" value={user.WorkAddress} name='WorkAddress' onChange={UserHandler} required />
                 </div> 
-                <div className="formSection">
                 <div  className="inputfield">
                     State
-                    <input type="text" value={user.State} name='State' onChange={UserHandler} required/>
+                    <input type="text" value={user.State} name='State' onChange={UserHandler} required />
 </div>
-<div  className="inputfield">
-                    Age
-                    <input type="text" value={user.Age} name='Age' onChange={UserHandler} required/>
-                    </div>
-                    </div>
+                
                     <div className="formSection">
                     <div>
                     Password
-                    <input type="password" value={user.password} name='password' onChange={UserHandler} required/>
-                    <div className="toggle">
+                    <input type={passwordType} value={user.password} name='password' onChange={UserHandler} required/>
+                    <div className="toggle" onChange={handlePasswordChange} value={passwordInput}>
                  { passwordType==="password"? <VisibilityOffOutlinedIcon  onClick={togglePassword} /> :<RemoveRedEyeOutlinedIcon onClick={togglePassword}/> }
                 </div>
                     </div>
                     <div>
                     Confirm Password
-                    <input type="password" value={user.confirmPassword} name='confirmPassword' onChange={UserHandler} required/>                    
-                    <div className="toggle">
+                    <input type={passwordType} value={user.confirmPassword} name='confirmPassword' onChange={UserHandler} required />
+                    <div className="toggle" onChange={handlePasswordChange} value={passwordInput}>
                  { passwordType==="password"? <VisibilityOffOutlinedIcon  onClick={togglePassword} /> :<RemoveRedEyeOutlinedIcon onClick={togglePassword}/> }
                 </div>
                     </div>
                 </div>
                 <div className="bottom">
-                <input type="checkbox" id="opt" />
+                <input type="checkbox" id="opt" required/>
 <span id="opt">By creating an account you agree to our<a href="www.google.com" alt="Terms and Condition">Terms of Service</a></span>
                 </div>
                 <div className="btn-ctn">
